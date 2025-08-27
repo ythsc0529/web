@@ -3,170 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隨便你工作室 | 專業數位解決方案</title>
-    
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <title>隨便你工作室 - 創意，從不等待。</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">
-                <img src="images/logo.png" alt="工作室 Logo">
-                <span>隨便你工作室</span>
-            </a>
-            <ul>
-                <li><a href="#services">服務項目</a></li>
-                <li><a href="#portfolio">作品集</a></li>
-                <li><a href="#process">工作流程</a></li>
-                <li><a href="#contact">聯絡我們</a></li>
-            </ul>
+    <header class="navbar">
+        <a href="index.html" class="logo">隨便你工作室</a>
+        <nav class="nav-links">
+            <a href="index.html#works">作品</a>
+            <a href="coming-soon.html">預告</a>
+            <a href="contact.html">聯絡我們</a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
-                <h1>用程式碼與設計，將創意變為現實</h1>
-                <p>我們專注於打造高效、美觀且使用者體驗絕佳的網頁</p>
-                <a href="#contact" class="cta-button">立即諮詢</a>
+            <h1 class="main-title">創意，從不等待。</h1>
+            <p class="subtitle">隨便你工作室，由一群高中生創立。我們相信，工具與遊戲，不只是功能，更是體驗。</p>
+            <div class="cta-buttons">
+                <a href="index.html#works" class="btn btn-primary">瀏覽作品</a>
+                <a href="coming-soon.html" class="btn btn-secondary">未來預告</a>
             </div>
         </section>
 
-        <section id="services" class="section container">
-            <h2 data-aos="fade-up">服務項目</h2>
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">🌐</div> 
-                    <h3>網站設計與開發</h3>
-                    <p>從企業官網到電商平台，我們提供響應式、高效能的全方位網站解決方案。</p>
+        <div class="container">
+            <section id="about" class="fade-in-section">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>實用工具</h3>
+                        <p>網站、程式、應用，我們打造貼心的工具，讓每一次操作，都流暢自然。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>互動與遊戲</h3>
+                        <p>從想法到上線，我們注入動畫與細節，讓每個作品，不只是好用，更好玩。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>專業接案</h3>
+                        <p>無論需求大小，我們都用心打造，結合創意與技術，讓你的專案脫穎而出。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>動畫美學</h3>
+                        <p>每一個動態效果，每一次過場轉場，都是我們對細節的堅持與熱愛。</p>
+                    </div>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">📱</div>
-                    <h3>行動應用程式 App</h3>
-                    <p>開發 iOS 與 Android 雙平台 App，提供流暢的使用者體驗與穩定的後端支持。</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI 軟體解決方案</h3>
-                    <p>整合自身開發Huson-AI，為您的業務打造客製化的智慧分析、預測與自動化工具。</p>
-                </div>
-            </div>
-        </section>
+            </section>
+            
+            <section class="fade-in-section" style="text-align: center; margin-top: 6rem;">
+                <h2>這不只是高中生的作品，<br>這是 <span class="highlight">隨便你工作室</span> 的承諾：<br>實用、精緻、充滿創意。</h2>
+            </section>
 
-        <section id="portfolio" class="section alt-bg">
-            <div class="container">
-                <h2 data-aos="fade-up">我們的作品</h2>
-                <div class="portfolio-grid">
-                    <div class="portfolio-card" data-aos="fade-up">
-                        <img src="images/project-ai.jpg" alt="AI 軟體專案圖片">
-                        <div class="card-content">
-                            <h3>Huson-AI</h3>
-                            <p>這是一款專屬於台灣人的AI軟體，有鑑於Gemini的協助，資料庫能夠匹敵其他大型語言模型，卻又有符合台灣人的講話風格</p>
-                            <a href="https://huson-ai.netlify.app" target="_blank" class="button">前往網站</a>
+            <section id="works" class="fade-in-section">
+                <h2>我們的作品</h2>
+                <div class="features-grid">
+                    <a href="huson-ai.html" style="text-decoration: none; color: inherit;">
+                        <div class="feature-card">
+                            <h3>Huson AI</h3>
+                            <p>來自台灣，為世界而生。台灣獨立開發的生成式人工智慧。</p>
+                            <div class="card-actions">
+                                <a href="#" class="btn btn-primary btn-small">立即體驗</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/project-2048.jpg" alt="2048 遊戲專案圖片">
-                        <div class="card-content">
-                            <h3>2048 遊戲</h3>
-                            <p>一款經過改良的2048遊戲，可以登入儲存自己的紀錄並與世界各地的玩家對戰</p>
-                            <a href="https://project-2518324333403573393.web.app/" target="_blank" class="button">開始遊戲</a>
+                    </a>
+                    <a href="2048.html" style="text-decoration: none; color: inherit;">
+                        <div class="feature-card">
+                            <h3>2048 全球對戰版</h3>
+                            <p>經典遊戲，嶄新體驗。與來自世界各地的玩家同場對決。</p>
+                            <div class="card-actions">
+                                <a href="#" class="btn btn-primary btn-small">立即體驗</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="portfolio-card" data-aos="fade-up" data-aos-delay="400">
-                        <img src="images/project-mahjong.jpg" alt="麻將工具箱專案圖片">
-                        <div class="card-content">
+                    </a>
+                    <a href="mahjong-toolbox.html" style="text-decoration: none; color: inherit;">
+                        <div class="feature-card">
                             <h3>麻將工具箱</h3>
-                            <p>它可以幫助使用者看聽牌、紀錄分數也可以測試與練習自己的麻將實力，必要時還能透過軟體骰骰子或甚至是透過我們的伺服器尋找牌咖。</p>
-                            <a href="https://mahcal.netlify.app" target="_blank" class="button">立即使用</a>
+                            <p>打牌，不只是運氣，還需要工具。專屬於麻將愛好者的全能程式。</p>
+                            <div class="card-actions">
+                                <a href="#" class="btn btn-primary btn-small">立即體驗</a>
+                            </div>
                         </div>
-                    </div>
-                     <div class="portfolio-card" data-aos="fade-up" data-aos-delay="600">
-                        <img src="images/rpg1.jpg" alt="失落的王國圖片">
-                        <div class="card-content">
-                            <h3>失落的王國</h3>
-                            <p>超長篇RPG預計遊玩時間半小時至一小時</p>
-                            <a href="https://hsc-rpg1.netlify.app" target="_blank" class="button">立即使用</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
-        </section>
-
-        <section id="process" class="section container">
-            <h2 data-aos="fade-up">我們的工作流程</h2>
-            <div class="process-wrapper">
-                <div class="process-step" data-aos="fade-right">
-                    <h3>01. 探索與分析</h3>
-                    <p>深入了解您的需求與目標，進行市場與使用者研究，定義專案範疇。</p>
-                </div>
-                <div class="process-step" data-aos="fade-left">
-                    <h3>02. 設計與原型</h3>
-                    <p>打造使用者流程與介面(UI/UX)，製作互動原型以確保設計方向正確。</p>
-                </div>
-                <div class="process-step" data-aos="fade-right">
-                    <h3>03. 開發與測試</h3>
-                    <p>由我們專業的工程師進行開發，並在過程中持續進行嚴謹的品質測試。</p>
-                </div>
-                <div class="process-step" data-aos="fade-left">
-                    <h3>04. 部署與維護</h3>
-                    <p>成功將產品上線github，並提供後續的技術支援與維護，確保系統穩定運行。</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section container">
-            <h2 data-aos="fade-up">準備好開始了嗎？</h2>
-            <p data-aos="fade-up" data-aos-delay="100" class="contact-subtitle">讓我們聊聊您的專案吧！填寫下方的表單，我們會盡快與您聯繫，並給您最實惠的報價。</p>
-            <form action="https://formspree.io/f/xnnzgzee" method="POST" class="contact-form" data-aos="fade-up" data-aos-delay="200">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="您的姓名" required>
-                    <input type="email" name="email" placeholder="您的 Email" required>
-                </div>
-                <textarea name="message" placeholder="請在此描述您的需求..." rows="6" required></textarea>
-                <button type="submit" class="cta-button">送出表單</button>
-            </form>
-        </section>
+            </section>
+        </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <h4>關於【隨便你工作室】</h4>
-                <p>一個由一群充滿熱誠的高中生所組成，致力於將創意與技術結合，打造卓越數位產品的專業團隊。</p>
-            </div>
-            <div class="footer-links">
-                <h4>快速連結</h4>
-                <ul>
-                    <li><a href="#services">服務項目</a></li>
-                    <li><a href="#portfolio">作品集</a></li>
-                    <li><a href="#process">工作流程</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4>關注我們</h4>
-                <a href="https://github.com/ythsc0529">GitHub</a>
-                <a href="https://www.instagram.com/hsc0529/">Instagram</a>
-                <a href="https://www.youtube.com/channel/UCoTWLrCInmr-s1faFEskmXA">Youtube</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 隨便你工作室. All Rights Reserved.</p>
-        </div>
+    <footer class="footer">
+        <p>&copy; 2025 隨便你工作室. All Rights Reserved.</p>
     </footer>
 
-    <a id="back-to-top" href="#">&uarr;</a>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
