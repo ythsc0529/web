@@ -381,3 +381,103 @@ p {
     border: none;
     cursor: pointer;
 }
+
+/* --- about.html 專用樣式 --- */
+.team-hero {
+    padding: 10rem 0 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(0,170,255,0.06), transparent 40%);
+}
+.team-hero .subtitle {
+    color: rgba(224,224,224,0.85);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+@media (min-width: 900px) {
+    .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: 1.6rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: transform 0.45s cubic-bezier(.2,.8,.2,1), box-shadow 0.45s;
+    min-height: 220px;
+    text-align: center;
+}
+@media (min-width: 900px) {
+    .member-card {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+.member-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+    border-color: rgba(0,170,255,0.18);
+}
+
+.avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg at 50% 50%, #00aaff, #66d9ff, #88f7ff);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    border: 3px solid rgba(255,255,255,0.03);
+}
+
+/* member info placeholders (empty so you can fill later) */
+.member-info .member-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-top: 0.4rem;
+    color: #ffffff;
+    min-height: 1.4em; /* 保留空間 */
+}
+.member-info .member-role {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin: 0.2rem 0 0.6rem;
+    min-height: 1.2em;
+}
+.member-info .member-bio {
+    color: rgba(224,224,224,0.9);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    min-height: 2.6em;
+}
+
+/* 微互動：當成員有內容時給予顏色 */
+.member-name:not(:empty) ~ .member-role { /* no-op to keep cascade, reserved for future JS hooks */ }
+
+/* 小的載入延遲效果（讓多個 .fade-in-section 看起來錯落） */
+.team-grid .fade-in-section { transition-delay: 0.05s; }
+.team-grid .fade-in-section:nth-child(2) { transition-delay: 0.12s; }
+.team-grid .fade-in-section:nth-child(3) { transition-delay: 0.18s; }
+.team-grid .fade-in-section:nth-child(4) { transition-delay: 0.24s; }
+
+/* 調整 project-final-quote 在 about 的樣式 */
+.project-final-quote {
+    background: linear-gradient(90deg, rgba(0,170,255,0.04), transparent);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+/* 小螢幕優化 */
+@media (max-width: 600px) {
+    .team-hero { padding-top: 6rem; }
+    .member-card { padding: 1rem; }
+}
