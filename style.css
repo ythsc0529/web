@@ -476,8 +476,125 @@ p {
     padding: 1.5rem;
 }
 
-/* 小螢幕優化 */
-@media (max-width: 600px) {
-    .team-hero { padding-top: 6rem; }
-    .member-card { padding: 1rem; }
+/* --- Weather page specific styles --- */
+.weather-hero {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    background: linear-gradient(180deg, rgba(0,170,255,0.06), rgba(18,18,18,0.02));
+    position: relative;
+    overflow: visible;
+}
+.weather-visual {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+.weather-visual .sky {
+    width: 100%;
+    max-width: 760px;
+    height: 160px;
+    position: relative;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+    box-shadow: inset 0 -20px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sun {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #fff8c4, #ffd24a 40%, #ffb000 100%);
+    border-radius: 50%;
+    box-shadow: 0 12px 30px rgba(255,180,0,0.12), 0 2px 6px rgba(0,0,0,0.25);
+    position: absolute;
+    left: 8%;
+    top: 18%;
+    transform-origin: center;
+    animation: sun-breathe 6s ease-in-out infinite;
+}
+@keyframes sun-breathe {
+    0% { transform: scale(1) translateY(0); opacity: 1; }
+    50% { transform: scale(1.06) translateY(-4px); opacity: 0.95; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.cloud {
+    width: 160px;
+    height: 48px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(240,240,240,0.85));
+    border-radius: 40px;
+    position: absolute;
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
+    opacity: 0.95;
+}
+.cloud::after, .cloud::before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    top: -20px;
+}
+.cloud::after { left: 10px; }
+.cloud::before { right: 10px; top: -10px; width: 90px; height: 90px; }
+.cloud-1 { left: 25%; top: 20%; animation: floatClouds 22s linear infinite; }
+.cloud-2 { right: 12%; top: 50%; width: 220px; height: 60px; animation: floatClouds 30s linear infinite reverse; }
+
+@keyframes floatClouds {
+    0% { transform: translateX(-10%); opacity: 0.95; }
+    50% { transform: translateX(6%); opacity: 1; }
+    100% { transform: translateX(-10%); opacity: 0.95; }
+}
+
+.temp-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+.temp-value {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -1px;
+}
+.temp-value .deg {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    margin-left: 4px;
+}
+.temp-note {
+    color: rgba(224,224,224,0.85);
+    font-size: 0.98rem;
+}
+
+/* 小尺寸調整 */
+@media (max-width: 700px) {
+    .weather-visual .sky { height: 120px; }
+    .sun { width: 60px; height: 60px; left: 6%; top: 16%; }
+    .cloud { width: 120px; height: 42px; }
+    .temp-value { font-size: 2.4rem; }
+}
+
+/* 小的互動提示 */
+.weather-hero .project-header-content .btn { margin-top: 1rem; }
+
+/* 更多可擴充的元件樣式（例如 hourly, radar 區塊） */
+.hourly-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+}
+.hour-cell {
+    background: rgba(255,255,255,0.02);
+    padding: 0.6rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.95rem;
 }
