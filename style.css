@@ -598,3 +598,57 @@ p {
     text-align: center;
     font-size: 0.95rem;
 }
+
+/* --- Liquid Glass Effect --- */
+.liquid-glass {
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.liquid-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.15),
+        transparent 40%
+    );
+    z-index: 0;
+}
+
+.liquid-glass::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.25),
+        transparent 40%
+    );
+    z-index: 1;
+}
+
+/* 調整現有卡片樣式以配合效果 */
+.feature-card {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.feature-card > * {
+    position: relative;
+    z-index: 2;
+}

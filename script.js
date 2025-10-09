@@ -16,3 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+
+// 添加 Liquid Glass 效果
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.feature-card, .project-section, .member-card');
+    
+    cards.forEach(card => {
+        card.classList.add('liquid-glass');
+        
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+});
