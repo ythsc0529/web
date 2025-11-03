@@ -652,3 +652,82 @@ p {
     position: relative;
     z-index: 2;
 }
+
+/* --- 更新公告 Modal（新增） --- */
+.site-update-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.6);
+	backdrop-filter: blur(4px);
+	opacity: 0;
+	transition: opacity 0.25s ease;
+	z-index: 2000;
+}
+.site-update-overlay.visible { opacity: 1; }
+
+.site-update-modal {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(0.98);
+	width: min(880px, 92%);
+	max-width: 880px;
+	background: linear-gradient(180deg, rgba(30,30,30,0.98), rgba(22,22,22,0.98));
+	border-radius: 12px;
+	box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+	color: var(--text-color);
+	opacity: 0;
+	transition: opacity 0.26s ease, transform 0.26s ease;
+	z-index: 2001;
+	overflow: hidden;
+	border: 1px solid rgba(255,255,255,0.04);
+}
+.site-update-modal.visible {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.site-update-dialog {
+	padding: 1.2rem 1.2rem 1rem;
+}
+.site-update-header h2 {
+	font-size: 1.25rem;
+	margin: 0 0 0.5rem;
+	color: #fff;
+}
+.site-update-body {
+	font-size: 0.98rem;
+	color: rgba(224,224,224,0.92);
+	padding-bottom: 0.8rem;
+}
+.site-update-body ul { margin: 0.4rem 0 0.6rem 1.1rem; }
+
+.site-update-footer {
+	display: flex;
+	gap: 0.8rem;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.8rem 1.2rem 1.2rem;
+	border-top: 1px solid rgba(255,255,255,0.03);
+	background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+.site-update-footer .dont-show {
+	font-size: 0.9rem;
+	color: rgba(224,224,224,0.85);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.site-update-actions {
+	display: flex;
+	gap: 0.6rem;
+	align-items: center;
+}
+/* 調整按鈕大小以符合 modal 風格 */
+.site-update-actions .btn { padding: 0.55rem 1rem; font-size: 0.95rem; }
+
+/* 手機上將 footer 內容直列排列 */
+@media (max-width: 520px) {
+	.site-update-footer { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+	.site-update-actions { justify-content: space-between; }
+}
