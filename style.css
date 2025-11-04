@@ -1,3 +1,4 @@
+/*為求方便，程式註解由AI生成，程式本體由我自行撰寫*/
 /* --- Google Font --- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
 
@@ -304,7 +305,6 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
-/* --- 附加到 style.css 末尾 --- */
 
 /* --- 作品卡片內的按鈕樣式 --- */
 .card-actions {
@@ -439,7 +439,7 @@ p {
     border: 3px solid rgba(255,255,255,0.03);
 }
 
-/* member info placeholders (empty so you can fill later) */
+/* member info placeholders */
 .member-info .member-name {
     font-size: 1.05rem;
     font-weight: 800;
@@ -653,7 +653,7 @@ p {
     z-index: 2;
 }
 
-/* --- 更新公告 Modal（新增） --- */
+/* --- 更新公告 Modal --- */
 .site-update-overlay {
 	position: fixed;
 	inset: 0;

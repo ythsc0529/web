@@ -1,5 +1,6 @@
+//為求方便，程式註解由AI生成，程式本體由我自行撰寫
 document.addEventListener('DOMContentLoaded', () => {
-	// --- Fade-in 觀察器（原有功能，保留） ---
+	// --- Fade-in 觀察器 ---
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const sections = document.querySelectorAll('.fade-in-section');
 	sections.forEach(section => observer.observe(section));
 
-	// --- Liquid Glass 效果（原有功能，保留） ---
+	// --- Liquid Glass 效果 ---
 	const cards = document.querySelectorAll('.feature-card, .project-section, .member-card');
 	cards.forEach(card => {
 		card.classList.add('liquid-glass');
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	// --- 更新公告 Modal（新增） ---
+	// --- 更新公告 Modal ---
 	const MODAL_KEY = 'sb_site_update_hidden_v1'; // localStorage key
 	// 若使用者已選擇不再顯示，則不彈出
 	if (!localStorage.getItem(MODAL_KEY)) {
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		modal.setAttribute('aria-modal', 'true');
 		modal.setAttribute('aria-label', '網站更新公告');
 
-		// 內容（可以自行調整文字）
+		// 內容
 		modal.innerHTML = `
 			<div class="site-update-dialog">
 				<header class="site-update-header">
