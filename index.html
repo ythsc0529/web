@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隨便你工作室 | 創意無界，虛實之間</title>
+    <title>隨便你工作室</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <!-- 背景光暈裝飾 -->
-    <div class="hero-bg-glow"></div>
 
     <header class="navbar">
         <a href="index.html" class="logo">隨便你工作室</a>
@@ -24,140 +21,108 @@
     </header>
 
     <main>
-        <section class="hero">
-            <h1 class="main-title">創意，<br>隨便你想。</h1>
-            <p class="subtitle">我們是隨便你工作室。在這裡，工具是藝術，遊戲是體驗，而創意是唯一的信仰。</p>
-            <div class="cta-buttons">
-                <a href="#works" class="btn btn-primary">探索作品</a>
-                <a href="coming-soon.html" class="btn btn-secondary">未來計畫</a>
+        <section class="hero reveal">
+            <div class="container">
+                <h1>創意，<br>隨便你想。</h1>
+                <p class="hero-subtitle">我們是隨便你工作室。在這裡，工具是藝術，遊戲是體驗，而創意是唯一的信仰。</p>
+                <div class="cta-buttons" style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center;">
+                    <a href="#works" class="btn btn-primary">探索作品</a>
+                    <a href="coming-soon.html" class="btn btn-secondary">未來計畫</a>
+                </div>
             </div>
         </section>
 
-        <div class="container">
-            <section id="about" class="fade-in-section" style="margin-bottom: 8rem;">
-                <div class="features-grid">
-                    <div class="feature-card liquid-glass">
+        <section class="container">
+            <div id="about" class="reveal" style="margin-bottom: 4rem;">
+                <h2 style="text-align: center; margin-bottom: 4rem;">我們的核心</h2>
+                <div class="bento-grid">
+                    <div class="card size-lg">
+                        <span class="card-category">核心價值</span>
                         <h3>實用工具</h3>
-                        <p>網站、程式、應用，我們打造貼心的工具，讓每一次操作，都流暢自然。從日常需求到專業輔助，無所不包。</p>
+                        <p>網站、程式、應用。我們打造貼心的工具，讓每一次操作都流暢自然。從日常需求到專業輔助，無所不包。</p>
                     </div>
-                    <div class="feature-card liquid-glass">
+                    <div class="card size-md">
+                        <span class="card-category">體驗設計</span>
                         <h3>互動與遊戲</h3>
-                        <p>從想法到上線，我們注入動畫與細節，讓每個作品，不只是好用，更好玩。沉浸式的體驗，是我們的標配。</p>
+                        <p>從想法到上線，我們注入動畫與細節。沉浸式的體驗是我們的標配。</p>
                     </div>
-                    <div class="feature-card liquid-glass">
+                    <div class="card">
+                        <span class="card-category">專業服務</span>
                         <h3>專業接案</h3>
-                        <p>無論需求大小，我們都用心打造，結合創意與技術，讓你的專案脫穎而出。</p>
+                        <p>結合創意與技術，讓你的專案脫穎而出。</p>
                     </div>
-                    <div class="feature-card liquid-glass">
+                    <div class="card">
+                        <span class="card-category">細節堅持</span>
                         <h3>動畫美學</h3>
-                        <p>每一個動態效果，每一次過場轉場，都是我們對細節的堅持與熱愛。</p>
+                        <p>每一次轉場都是對細節的堅持。</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="fade-in-section" style="text-align: center; margin: 8rem 0;">
-                <h2>這不只是高中生的作品，<br>這是 <span class="highlight">隨便你工作室</span> 的承諾：<br>極致、精緻、充滿靈魂。</h2>
-            </section>
-
-            <section id="works" class="works-section fade-in-section">
-                <h2>精選作品(黃色為受他人委託之作品)</h2>
-                <div class="features-grid">
-                    <a href="huson-ai.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>Huson AI</h3>
-                            <p>來自台灣，為世界而生。台灣獨立開發的生成式人工智慧，探索語言模型的無限可能。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+        <section id="works" class="container">
+            <div class="reveal">
+                <h2 style="text-align: center; margin-bottom: 4rem;">精選作品</h2>
+                <div class="bento-grid">
+                    <a href="huson-ai.html" class="card size-lg">
+                        <span class="card-category">AI 模型</span>
+                        <h3>Huson AI</h3>
+                        <p>來自台灣，為世界而生。台灣獨立開發的生成式人工智慧，探索語言模型的無限可能。</p>
                     </a>
 
-                    <a href="animoracard.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>靈獸牌 (Animora)</h3>
-                            <p>占卜，重新定義。獨家靈獸牌，以象徵與智慧帶來專屬的解答與啟示。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="animoracard.html" class="card">
+                        <span class="card-category">占卜與象徵</span>
+                        <h3>靈獸牌</h3>
+                        <p>獨家靈獸牌，以象徵與智慧帶來專屬的解答與啟示。</p>
                     </a>
 
-                    <a href="uptotranslate.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>隨便你翻</h3>
-                            <p>翻譯，從未如此聰明。結合 Huson AI 的即時翻譯與智能學習，打破語言隔閡。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="uptotranslate.html" class="card">
+                        <span class="card-category">語言翻譯</span>
+                        <h3>隨便你翻</h3>
+                        <p>結合 Huson AI 的即時翻譯與智能學習，打破語言隔閡。</p>
                     </a>
 
-                    <a href="2048.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>2048 全球對戰</h3>
-                            <p>經典遊戲，嶄新體驗。與來自世界各地的玩家同場對決，爭奪排行榜榮耀。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="2048.html" class="card size-md">
+                        <span class="card-category">遊戲體驗</span>
+                        <h3>2048 全球對戰</h3>
+                        <p>經典遊戲，嶄新體驗。與來自世界各地的玩家同場對決。</p>
                     </a>
 
-                    <a href="mahjong-toolbox.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>麻將工具箱</h3>
-                            <p>打牌，不只是運氣，還需要工具。專屬於麻將愛好者的全能助手。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="mahjong-toolbox.html" class="card">
+                        <span class="card-category">實用工具</span>
+                        <h3>麻將工具箱</h3>
+                        <p>專屬於麻將愛好者的全能助手。</p>
                     </a>
 
-                    <a href="weather.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>專業氣象預報</h3>
-                            <p>結合中央氣象署資料與精緻動態效果，提供最可靠、直覺的天氣指南。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="weather.html" class="card size-tall">
+                        <span class="card-category">天氣氣象</span>
+                        <h3>專業氣象預報</h3>
+                        <p>提供最可靠、直覺的天氣指南。</p>
                     </a>
 
-                    <a href="yanyanball.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3 style="color: #ffcc33;">雁雁球</h3>
-                            <p>學英文，回到本質。專為考生打造的 7000 單字學習平台，讓學習不再有門檻。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small"
-                                    style="background: #ffcc33; color: #000; box-shadow: 0 0 15px rgba(255, 204, 51, 0.4);">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="yanyanball.html" class="card">
+                        <span class="card-category">學習教育</span>
+                        <h3>雁雁球</h3>
+                        <p>專為考生打造的 7000 單字學習平台。</p>
                     </a>
 
-                    <a href="uptombti.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>MBTI 測試</h3>
-                            <p>了解自己，是最重要的能力。我們打造了一款真正精準、深入的人格分析網站。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="uptombti.html" class="card">
+                        <span class="card-category">人格心理</span>
+                        <h3>MBTI 測試</h3>
+                        <p>真正精準、深入的人格分析網站。</p>
                     </a>
 
-                    <a href="uptoval.html" style="text-decoration: none; color: inherit; display: contents;">
-                        <div class="feature-card liquid-glass">
-                            <h3>特戰隨便你</h3>
-                            <p>為您的特戰添增許多色彩，更方便的關注職業賽事，並體驗不同的自訂對戰。</p>
-                            <div class="card-actions">
-                                <span class="btn btn-primary btn-small">瞭解更多</span>
-                            </div>
-                        </div>
+                    <a href="uptoval.html" class="card">
+                        <span class="card-category">電競動態</span>
+                        <h3>特戰隨便你</h3>
+                        <p>為您的特戰添增許多色彩。</p>
                     </a>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
+    <footer class="reveal">
         <p>&copy; 2025 隨便你工作室. All Rights Reserved.</p>
     </footer>
 

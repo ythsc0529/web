@@ -1,292 +1,246 @@
-/*為求方便，程式註解由AI生成，程式本體由我自行撰寫*/
-/* --- Google Font --- */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700;900&display=swap');
+/* 
+ * WhateverYouStudio - Premium Design System
+ * Inspired by Apple & Google official aesthetics.
+ * Minimalism, Sophistication, and Fluidity.
+ */
 
-/* --- 全局設定與變數 --- */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    /* 核心色票：深邃虛空與霓虹光暈 */
-    --primary-color: #00f2ff;
-    /* 霓虹青 */
-    --secondary-color: #7000ff;
-    /* 霓虹紫 */
-    --accent-color: #ff0055;
-    /* 霓虹粉 */
-
-    --background-color: #050505;
-    /* 極致深黑 */
-    --surface-color: #0a0a0a;
-    /* 表面層 */
-
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-highlight: rgba(255, 255, 255, 0.15);
-
-    --border-radius: 24px;
-    --transition-speed: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Color Palette - Monochromatic Premium */
+    --color-bg: #000000;
+    --color-text: #FAFAFA;
+    --color-text-muted: rgba(250, 250, 250, 0.6);
+    --color-accent: #ffffff;
+    --color-glass: rgba(255, 255, 255, 0.03);
+    --color-glass-border: rgba(255, 255, 255, 0.08);
+    --color-glass-hover: rgba(255, 255, 255, 0.06);
+    
+    /* Typography */
+    --font-heading: "Bodoni Moda", serif;
+    --font-body: "Jost", sans-serif;
+    
+    /* Spacing */
+    --space-unit: 1rem;
+    --radius-lg: 32px;
+    --radius-md: 16px;
+    
+    /* Transitions */
+    --transition-smooth: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-fast: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Base resets */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: 'Outfit', 'Noto Sans TC', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-primary);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-    /* 背景動態光暈 */
-    background-image:
-        radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(0, 242, 255, 0.08), transparent 25%);
-    background-attachment: fixed;
 }
 
-/* --- 導覽列 --- */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 8rem 0;
+}
+
+/* --- Navbar --- */
 .navbar {
     position: fixed;
-    top: 20px;
+    top: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 1200px;
+    width: min(90%, 1200px);
     padding: 1rem 2rem;
-    background: rgba(10, 10, 10, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--color-glass-border);
     border-radius: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .navbar.scrolled {
-    top: 10px;
     padding: 0.8rem 2rem;
-    background: rgba(5, 5, 5, 0.8);
+    background: rgba(0, 0, 0, 0.8);
+    top: 1rem;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
     text-decoration: none;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #fff 0%, var(--primary-color) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .nav-links a {
-    color: var(--text-secondary);
     text-decoration: none;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
     margin-left: 2rem;
     font-weight: 500;
-    font-size: 0.95rem;
-    transition: all var(--transition-speed);
-    position: relative;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .nav-links a:hover {
-    color: var(--text-primary);
+    color: var(--color-text);
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-    box-shadow: 0 0 10px var(--primary-color);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* --- 主要容器與通用樣式 --- */
-.container {
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 0 8rem;
-}
-
-h1,
-h2,
-h3 {
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-}
-
-h1 {
-    font-size: clamp(3.5rem, 8vw, 6rem);
-    color: #ffffff;
-}
-
-h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: #ffffff;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-}
-
-.highlight {
-    color: var(--primary-color);
-    text-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
-}
-
-/* --- Liquid Glass Effect Utility --- */
-.liquid-glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px) saturate(120%);
-    -webkit-backdrop-filter: blur(16px) saturate(120%);
-    border: 1px solid var(--glass-border);
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
-}
-
-/* 光澤流動效果 */
-.liquid-glass::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(115deg,
-            transparent 0%,
-            transparent 40%,
-            rgba(255, 255, 255, 0.05) 45%,
-            rgba(255, 255, 255, 0.1) 50%,
-            rgba(255, 255, 255, 0.05) 55%,
-            transparent 60%,
-            transparent 100%);
-    transform: skewX(-20deg);
-    transition: left 0.8s ease;
-    pointer-events: none;
-}
-
-.liquid-glass:hover::before {
-    left: 100%;
-    transition: left 0.8s ease;
-}
-
-/* 滑鼠跟隨光暈 (由 JS 控制 --mouse-x, --mouse-y) */
-.liquid-glass::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(255, 255, 255, 0.06),
-            transparent 40%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.liquid-glass:hover::after {
-    opacity: 1;
-}
-
-.liquid-glass:hover {
-    border-color: var(--glass-highlight);
-    box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(0, 242, 255, 0.1),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px) scale(1.01);
-}
-
-/* --- Hero 區域 --- */
+/* --- Hero Section --- */
 .hero {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 5%;
+    position: relative;
+    padding-top: 5rem;
+}
+
+.hero-subtitle {
+    font-weight: 400;
+    max-width: 800px;
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+/* --- Bento Grid --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--color-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
-/* Hero 背景裝飾 */
-.hero-bg-glow {
+.card:hover {
+    background: var(--color-glass-hover);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+}
+
+/* Mouse glow effect */
+.card::after {
+    content: '';
     position: absolute;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, rgba(0, 242, 255, 0.15), transparent 70%);
-    top: 50%;
-    left: 50%;
+    top: var(--y, 0);
+    left: var(--x, 0);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
     transform: translate(-50%, -50%);
-    filter: blur(60px);
-    z-index: -1;
-    animation: pulseGlow 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-@keyframes pulseGlow {
-    0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-
-    100% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1.1);
-    }
+.card:hover::after {
+    opacity: 1;
 }
 
-.hero h1 {
-    margin-bottom: 1.5rem;
-    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
-    animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+/* Card sizing variants */
+.size-lg { grid-column: span 2; grid-row: span 2; }
+.size-md { grid-column: span 2; }
+.size-tall { grid-row: span 2; }
+
+.card h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
-.hero .subtitle {
-    font-size: 1.25rem;
-    max-width: 600px;
-    margin-bottom: 3rem;
-    animation: slideUpFade 1s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+.card p {
+    font-size: 1rem;
 }
 
-.cta-buttons {
-    display: flex;
-    gap: 1.5rem;
-    animation: slideUpFade 1s 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+.card .card-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    display: block;
 }
 
+/* --- Buttons --- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -294,364 +248,104 @@ p {
     padding: 1rem 2.5rem;
     border-radius: 100px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
-    letter-spacing: 0.5px;
-    transition: all var(--transition-speed);
-    position: relative;
-    overflow: hidden;
+    transition: var(--transition-fast);
+    cursor: pointer;
 }
 
 .btn-primary {
-    background: var(--primary-color);
-    color: #000;
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+    background: var(--color-accent);
+    color: var(--color-bg);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
-    background: #fff;
+    background: #e2e2e2;
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-glass-border);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #fff;
-    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-text);
 }
 
-/* --- Bento Grid Layout --- */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
-}
-
-/* 讓第一個卡片變大 (Bento style) */
-@media (min-width: 992px) {
-    .features-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: minmax(250px, auto);
-    }
-
-    .features-grid .feature-card:first-child {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    .features-grid .feature-card:nth-child(2) {
-        grid-column: span 1;
-        grid-row: span 2;
-    }
-}
-
-.feature-card {
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* 繼承 liquid-glass 的樣式 */
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px) saturate(120%);
-    -webkit-backdrop-filter: blur(16px) saturate(120%);
-    border: 1px solid var(--glass-border);
-    position: relative;
-    overflow: hidden;
-    transition: all var(--transition-speed);
-}
-
-.feature-card:hover {
-    border-color: var(--glass-highlight);
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-.feature-card h3 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.2;
-}
-
-.feature-card p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-    line-height: 1.7;
-}
-
-/* --- 作品展示區 --- */
-.works-section {
-    padding: 10rem 0;
-}
-
-/* --- 動畫 Keyframes --- */
-@keyframes slideUpFade {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-section {
+/* --- Animations --- */
+.reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: var(--transition-smooth);
 }
 
-.fade-in-section.is-visible {
+.reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* --- Footer --- */
-.footer {
+footer {
+    padding: 6rem 0;
     text-align: center;
-    padding: 4rem 0;
-    margin-top: 4rem;
-    border-top: 1px solid var(--glass-border);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    border-top: 1px solid var(--color-glass-border);
 }
 
-.footer p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+footer p {
+    font-size: 0.8rem;
 }
 
-/* --- About Page Styles --- */
-.team-hero {
-    padding: 12rem 0 6rem;
-    text-align: center;
-    background: radial-gradient(circle at 50% 0%, rgba(112, 0, 255, 0.15), transparent 60%);
-    position: relative;
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.team-intro h2,
-.values-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.member-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    text-align: center;
-    transition: all var(--transition-speed);
-    backdrop-filter: blur(10px);
-}
-
-.member-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #fff;
-    font-size: 1.2rem;
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
-}
-
-.member-name {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.member-role {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.member-bio {
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* --- RWD 調整 --- */
 @media (max-width: 768px) {
-    .navbar {
-        width: 95%;
-        padding: 0.8rem 1.5rem;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    .features-grid {
+    h1 { font-size: 4rem; }
+    .navbar { width: 95%; padding: 0.8rem 1.5rem; }
+    .hero { min-height: 80vh; }
+    .bento-grid {
         grid-template-columns: 1fr;
     }
-
-    .features-grid .feature-card:first-child,
-    .features-grid .feature-card:nth-child(2) {
+    .size-lg, .size-md, .size-tall {
         grid-column: span 1;
         grid-row: span 1;
     }
 }
 
-/* --- 其他頁面兼容性調整 (保留原有結構但套用新樣式) --- */
-.project-header {
+/* --- Specific Page Overrides --- */
+.page-header {
     padding: 12rem 0 6rem;
     text-align: center;
-    background: radial-gradient(circle at 50% 0%, rgba(0, 242, 255, 0.1), transparent 50%);
 }
 
-.project-section {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 2.5rem;
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.contact-form input,
+.contact-form input, 
 .contact-form textarea {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--glass-border);
-    color: #fff;
-    border-radius: 12px;
-    transition: all 0.3s;
+    width: 100%;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-md);
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition-fast);
 }
 
-.contact-form input:focus,
+.contact-form input:focus, 
 .contact-form textarea:focus {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--primary-color);
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
-}
-
-/* --- 更新公告 Modal --- */
-.site-update-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    transition: opacity 0.25s ease;
-    z-index: 2000;
-}
-
-.site-update-overlay.visible {
-    opacity: 1;
-}
-
-.site-update-modal {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.98);
-    width: min(880px, 92%);
-    max-width: 880px;
-    background: linear-gradient(180deg, rgba(30, 30, 30, 0.98), rgba(22, 22, 22, 0.98));
-    border-radius: 12px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-    color: var(--text-color);
-    opacity: 0;
-    transition: opacity 0.26s ease, transform 0.26s ease;
-    z-index: 2001;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.site-update-modal.visible {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.site-update-dialog {
-    padding: 1.2rem 1.2rem 1rem;
-}
-
-.site-update-header h2 {
-    font-size: 1.25rem;
-    margin: 0 0 0.5rem;
-    color: #fff;
-}
-
-.site-update-body {
-    font-size: 0.98rem;
-    color: rgba(224, 224, 224, 0.92);
-    padding-bottom: 0.8rem;
-}
-
-.site-update-body ul {
-    margin: 0.4rem 0 0.6rem 1.1rem;
-}
-
-.site-update-footer {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.8rem 1.2rem 1.2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
-}
-
-.site-update-footer .dont-show {
-    font-size: 0.9rem;
-    color: rgba(224, 224, 224, 0.85);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.site-update-actions {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
-}
-
-/* 調整按鈕大小以符合 modal 風格 */
-.site-update-actions .btn {
-    padding: 0.55rem 1rem;
-    font-size: 0.95rem;
-}
-
-/* 手機上將 footer 內容直列排列 */
-@media (max-width: 520px) {
-    .site-update-footer {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.6rem;
-    }
-
-    .site-update-actions {
-        justify-content: space-between;
-    }
+    outline: none;
+    border-color: var(--color-text);
+    background: rgba(255, 255, 255, 0.08);
 }
