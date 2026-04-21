@@ -9,25 +9,32 @@
 <body>
 
     <header class="navbar">
-        <a href="index.html" class="logo">隨便你工作室</a>
+        <a href="index.html" class="logo" data-i18n="logo">隨便你工作室</a>
         <nav class="nav-links">
             <a href="index.html#works">作品</a>
-            <a href="coming-soon.html">預告</a>
-            <a href="contact.html">聯絡我們</a>
-            <a href="about.html">關於我們</a>
+            <a href="coming-soon.html" data-i18n="nav-future">預告</a>
+            <a href="contact.html" data-i18n="nav-contact">聯絡我們</a>
+            <a href="about.html" data-i18n="nav-about">關於我們</a>
         </nav>
+                                <div class="lang-dropdown">
+                    <button class="lang-dropbtn" aria-label="Select Language"></button>
+                    <div class="lang-content">
+                        <button data-lang="zh">繁體中文</button>
+                        <button data-lang="en">English</button>
+                    </div>
+                </div>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme"></button>
     </header>
 
     <main>
         <section class="page-header reveal">
             <div class="container">
-                <h1>關於我們</h1>
-                <p class="hero-subtitle">
+                <h1 data-i18n="about-us">關於我們</h1>
+                <p class="hero-subtitle" data-i18n="hero-subtitle">
                     一個喜歡把想法變成產品的學生與創作者。專注於工具、遊戲與 AI 體驗設計。
                 </p>
                 <div class="cta-buttons" style="margin-top:2rem; display:flex; gap:1rem; justify-content:center;">
-                    <a href="contact.html" class="btn btn-primary">聯絡我們</a>
+                    <a href="contact.html" class="btn btn-primary" data-i18n="nav-contact">聯絡我們</a>
                 </div>
             </div>
         </section>
@@ -41,10 +48,10 @@
 
                 <div class="bento-grid">
                     <div class="card">
-                        <span class="card-category">創立人</span>
+                        <span class="card-category" data-i18n="founder-role">創立人</span>
                         <h3>黃士禎</h3>
-                        <p class="member-role">創立人</p>
-                        <p>我希望可以透過我們的技術來實現大家的創意，因此創立此工作室。</p>
+                        <p class="member-role" data-i18n="founder-role">創立人</p>
+                        <p data-i18n="founder-desc">我希望可以透過我們的技術來實現大家的創意，因此創立此工作室。</p>
                     </div>
 
                     <div class="card">
@@ -98,7 +105,7 @@
     </main>
 
     <footer class="reveal">
-        <p>&copy; 2025 隨便你工作室. All Rights Reserved.</p>
+        <p data-i18n="footer-copy">&copy; 2025 隨便你工作室. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>

@@ -11,51 +11,58 @@
 <body>
 
     <header class="navbar">
-        <a href="index.html" class="logo">隨便你工作室</a>
+        <a href="index.html" class="logo" data-i18n="logo">隨便你工作室</a>
         <nav class="nav-links">
-            <a href="#works">作品</a>
-            <a href="coming-soon.html">預告</a>
-            <a href="contact.html">聯絡我們</a>
-            <a href="about.html">關於我們</a>
+            <a href="#works" data-i18n="nav-works">作品</a>
+            <a href="coming-soon.html" data-i18n="nav-future">預告</a>
+            <a href="contact.html" data-i18n="nav-contact">聯絡我們</a>
+            <a href="about.html" data-i18n="nav-about">關於我們</a>
         </nav>
+                                <div class="lang-dropdown">
+                    <button class="lang-dropbtn" aria-label="Select Language"></button>
+                    <div class="lang-content">
+                        <button data-lang="zh">繁體中文</button>
+                        <button data-lang="en">English</button>
+                    </div>
+                </div>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme"></button>
     </header>
 
     <main>
         <section class="hero reveal">
             <div class="container">
-                <h1>創意，<br>隨便你想。</h1>
-                <p class="hero-subtitle">我們是隨便你工作室。在這裡，工具是藝術，遊戲是體驗，而創意是唯一的信仰。</p>
+                <h1 data-i18n="hero-title">創意，<br>隨便你想。</h1>
+                <p class="hero-subtitle" data-i18n="hero-subtitle">我們是隨便你工作室。在這裡，工具是藝術，遊戲是體驗，而創意是唯一的信仰。</p>
                 <div class="cta-buttons" style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: center;">
-                    <a href="#works" class="btn btn-primary">探索作品</a>
-                    <a href="coming-soon.html" class="btn btn-secondary">未來計畫</a>
+                    <a href="#works" class="btn btn-primary" data-i18n="cta-explore">探索作品</a>
+                    <a href="coming-soon.html" class="btn btn-secondary" data-i18n="cta-future">未來計畫</a>
                 </div>
             </div>
         </section>
 
         <section class="container">
             <div id="about" class="reveal" style="margin-bottom: 4rem;">
-                <h2 style="text-align: center; margin-bottom: 4rem;">我們的核心</h2>
+                <h2 style="text-align: center; margin-bottom: 4rem;" data-i18n="core-title">我們的核心</h2>
                 <div class="bento-grid">
                     <div class="card size-lg">
-                        <span class="card-category">核心價值</span>
-                        <h3>實用工具</h3>
-                        <p>網站、程式、應用。我們打造貼心的工具，讓每一次操作都流暢自然。從日常需求到專業輔助，無所不包。</p>
+                        <span class="card-category" data-i18n="core-value">核心價值</span>
+                        <h3 data-i18n="util-title">實用工具</h3>
+                        <p data-i18n="util-desc">網站、程式、應用。我們打造貼心的工具，讓每一次操作都流暢自然。從日常需求到專業輔助，無所不包。</p>
                     </div>
                     <div class="card size-md">
-                        <span class="card-category">體驗設計</span>
-                        <h3>互動與遊戲</h3>
-                        <p>從想法到上線，我們注入動畫與細節。沉浸式的體驗是我們的標配。</p>
+                        <span class="card-category" data-i18n="exp-label">體驗設計</span>
+                        <h3 data-i18n="game-title">互動與遊戲</h3>
+                        <p data-i18n="game-desc">從想法到上線，我們注入動畫與細節。沉浸式的體驗是我們的標配。</p>
                     </div>
                     <div class="card">
-                        <span class="card-category">專業服務</span>
-                        <h3>專業接案</h3>
-                        <p>結合創意與技術，讓你的專案脫穎而出。</p>
+                        <span class="card-category" data-i18n="svc-label">專業服務</span>
+                        <h3 data-i18n="svc-title">專業接案</h3>
+                        <p data-i18n="svc-desc">結合創意與技術，讓你的專案脫穎而出。</p>
                     </div>
                     <div class="card">
-                        <span class="card-category">細節堅持</span>
-                        <h3>動畫美學</h3>
-                        <p>每一次轉場都是對細節的堅持。</p>
+                        <span class="card-category" data-i18n="det-label">細節堅持</span>
+                        <h3 data-i18n="det-title">動畫美學</h3>
+                        <p data-i18n="det-desc">每一次轉場都是對細節的堅持。</p>
                     </div>
                 </div>
             </div>
@@ -63,59 +70,59 @@
 
         <section id="works" class="container">
             <div class="reveal">
-                <h2 style="text-align: center; margin-bottom: 4rem;">精選作品</h2>
+                <h2 style="text-align: center; margin-bottom: 4rem;" data-i18n="works-title">精選作品</h2>
                 <div class="bento-grid">
                     <a href="huson-ai.html" class="card size-lg">
-                        <span class="card-category">AI 模型</span>
+                        <span class="card-category" data-i18n="ai-label">AI 模型</span>
                         <h3>Huson AI</h3>
-                        <p>來自台灣，為世界而生。台灣獨立開發的生成式人工智慧，探索語言模型的無限可能。</p>
+                        <p data-i18n="huson-desc">來自台灣，為世界而生。台灣獨立開發的生成式人工智慧，探索語言模型的無限可能。</p>
                     </a>
 
                     <a href="animoracard.html" class="card">
-                        <span class="card-category">占卜與象徵</span>
-                        <h3>靈獸牌</h3>
-                        <p>獨家靈獸牌，以象徵與智慧帶來專屬的解答與啟示。</p>
+                        <span class="card-category" data-i18n="div-label">占卜與象徵</span>
+                        <h3 data-i18n="animora-title">靈獸牌</h3>
+                        <p data-i18n="animora-desc">獨家靈獸牌，以象徵與智慧帶來專屬的解答與啟示。</p>
                     </a>
 
                     <a href="uptotranslate.html" class="card">
-                        <span class="card-category">語言翻譯</span>
-                        <h3>隨便你翻</h3>
-                        <p>結合 Huson AI 的即時翻譯與智能學習，打破語言隔閡。</p>
+                        <span class="card-category" data-i18n="trans-label">語言翻譯</span>
+                        <h3 data-i18n="trans-title">隨便你翻</h3>
+                        <p data-i18n="trans-desc">結合 Huson AI 的即時翻譯與智能學習，打破語言隔閡。</p>
                     </a>
 
                     <a href="2048.html" class="card size-md">
-                        <span class="card-category">遊戲體驗</span>
-                        <h3>2048 全球對戰</h3>
-                        <p>經典遊戲，嶄新體驗。與來自世界各地的玩家同場對決。</p>
+                        <span class="card-category" data-i18n="game-label">遊戲體驗</span>
+                        <h3 data-i18n="game2048-title">2048 全球對戰</h3>
+                        <p data-i18n="game2048-desc">經典遊戲，嶄新體驗。與來自世界各地的玩家同場對決。</p>
                     </a>
 
                     <a href="mahjong-toolbox.html" class="card">
-                        <span class="card-category">實用工具</span>
-                        <h3>麻將工具箱</h3>
+                        <span class="card-category" data-i18n="util-label">實用工具</span>
+                        <h3 data-i18n="mahjong-title">麻將工具箱</h3>
                         <p>專屬於麻將愛好者的全能助手。</p>
                     </a>
 
                     <a href="weather.html" class="card size-tall">
-                        <span class="card-category">天氣氣象</span>
-                        <h3>專業氣象預報</h3>
+                        <span class="card-category" data-i18n="weather-label">天氣氣象</span>
+                        <h3 data-i18n="weather-title">專業氣象預報</h3>
                         <p>提供最可靠、直覺的天氣指南。</p>
                     </a>
 
                     <a href="yanyanball.html" class="card">
-                        <span class="card-category">學習教育</span>
-                        <h3>雁雁球</h3>
+                        <span class="card-category" data-i18n="edu-label">學習教育</span>
+                        <h3 data-i18n="yanyan-title">雁雁球</h3>
                         <p>專為考生打造的 7000 單字學習平台。</p>
                     </a>
 
                     <a href="uptombti.html" class="card">
-                        <span class="card-category">人格心理</span>
-                        <h3>MBTI 測試</h3>
+                        <span class="card-category" data-i18n="psy-label">人格心理</span>
+                        <h3 data-i18n="mbti-title">MBTI 測試</h3>
                         <p>真正精準、深入的人格分析網站。</p>
                     </a>
 
                     <a href="uptoval.html" class="card">
-                        <span class="card-category">電競動態</span>
-                        <h3>特戰隨便你</h3>
+                        <span class="card-category" data-i18n="esport-label">電競動態</span>
+                        <h3 data-i18n="val-title">特戰隨便你</h3>
                         <p>為您的特戰添增許多色彩。</p>
                     </a>
                 </div>
@@ -124,7 +131,7 @@
     </main>
 
     <footer class="reveal">
-        <p>&copy; 2025 隨便你工作室. All Rights Reserved.</p>
+        <p data-i18n="footer-copy">&copy; 2025 隨便你工作室. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>

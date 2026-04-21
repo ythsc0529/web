@@ -52,13 +52,20 @@
 <body>
 
     <header class="navbar">
-        <a href="index.html" class="logo">隨便你工作室</a>
+        <a href="index.html" class="logo" data-i18n="logo">隨便你工作室</a>
         <nav class="nav-links">
             <a href="index.html#works">作品</a>
-            <a href="coming-soon.html">預告</a>
-            <a href="contact.html">聯絡我們</a>
-            <a href="about.html">關於我們</a>
+            <a href="coming-soon.html" data-i18n="nav-future">預告</a>
+            <a href="contact.html" data-i18n="nav-contact">聯絡我們</a>
+            <a href="about.html" data-i18n="nav-about">關於我們</a>
         </nav>
+                                <div class="lang-dropdown">
+                    <button class="lang-dropbtn" aria-label="Select Language"></button>
+                    <div class="lang-content">
+                        <button data-lang="zh">繁體中文</button>
+                        <button data-lang="en">English</button>
+                    </div>
+                </div>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme"></button>
     </header>
 
