@@ -140,7 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'future-rpg-f2-d': '面對怪物，戰鬥、升級，寫下專屬於你的傳奇。',
             'future-rpg-f3-t': '沉浸體驗：',
             'future-rpg-f3-d': '用文字構築的世界，卻比想像更真實。',
-            'future-rpg-final': '「你的選擇，就是故事。」',
+            'future-rpg-final-1': '這不只是故事。',
+            'future-rpg-final-2': '這是 你的冒險。',
+            'future-rpg-final-3': '「你的選擇，就是故事。」',
             // Yanyanball Page
             'yanyan-tagline': '「學英文，回到本質。」',
             'yanyan-start': '開始學習',
@@ -173,7 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'trans-f3-d': 'Huson AI 了解你的習慣與需求，給予最貼近你的建議與解釋。',
             'trans-f4-t': '直覺設計',
             'trans-f4-d': '簡潔的介面、流暢的動畫，每一次操作，都是享受。',
-            'trans-quote': '這不只是翻譯。這是 懂你的翻譯軟體。<br><span class="highlight">「因為語言，不該成為阻礙。」</span>',
+            'trans-quote-1': '這不只是翻譯。',
+            'trans-quote-2': '這是 懂你的翻譯。',
+            'trans-quote-3': '「因為語言，不該成為阻礙。」',
             // Huson AI Page
             'ai-tagline': '「來自台灣，為世界而生。」',
             'ai-btn': '立即體驗',
@@ -193,7 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'ai-future-f2-title': '圖片生成',
             'ai-future-f2-desc': '從文字描述到視覺作品，產出高解析圖像。',
             'ai-future-test': '若想參與測試，請透過 <a href="contact.html" style="color: white; text-decoration: underline;">聯絡我們</a>。',
-            'ai-final': '這不只是人工智慧，這是 Huson AI。<br><span style="color: white; font-weight: 700;">滿滿台灣味，走向全世界。</span>',
+            'ai-final-1': '這不只是人工智慧。',
+            'ai-final-2': '這是 Huson AI。',
+            'ai-final-3': '「滿滿台灣味，走向全世界。」',
             // Animora Card Page
             'animora-tagline': '「占卜，重新定義。」',
             'animora-btn': '立即體驗',
@@ -204,7 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'animora-f2-d': '結合 Huson AI，帶來最客製化、最貼近心靈的占卜體驗。',
             'animora-f3-t': '直覺介面',
             'animora-f3-d': '精緻互動，流暢細節，讓神秘與科技完美融合。',
-            'animora-final': '這不只是占卜。這是 <span class="highlight">靈獸牌</span>。<br>「未知，從此清晰。」',
+            'animora-final-1': '這不只是占卜。',
+            'animora-final-2': '這是 靈獸牌。',
+            'animora-final-3': '「未知，從此清晰。」',
             // 2048 Page
             'game2048-tagline': '「經典遊戲，嶄新體驗。」',
             'game2048-hero-desc': '2048，不只是單機挑戰。我們重新定義這款經典，<br>讓你可以登入帳號，即時與來自世界各地的玩家同場對決。',
@@ -214,7 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'game2048-f2-d': '即刻登入，挑戰世界。用你的智慧與手速，登上排行榜的頂端。',
             'game2048-f3-t': '全新社群體驗',
             'game2048-f3-d': '朋友、對手、戰場。這不再只是單人遊戲，而是一個屬於所有玩家的競技舞台。',
-            'game2048-final': '這是 2048 全球對戰版。<br><span class="highlight">「經典，從此不同。」</span>',
+            'game2048-final-1': '這不只是遊戲。',
+            'game2048-final-2': '這是 2048 全球對戰。',
+            'game2048-final-3': '「經典，從此不同。」',
             // Mahjong Toolbox Page
             'mahjong-tagline': '「打牌，不只是運氣，還需要工具。」',
             'mahjong-hero-desc': '我們打造一款專屬於麻將愛好者的全能程式。<br>麻將工具箱 —— 讓你的每一局，都更有掌握。',
@@ -228,7 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'mahjong-f4-d': '今日運勢，一看便知。還能招財神，讓你打牌更添吉祥。',
             'mahjong-f5-t': '找牌咖',
             'mahjong-f5-d': '透過我們的伺服器，你可以輕鬆找到牌友，隨時開桌，麻將不再孤單',
-            'mahjong-final': '這不只是輔助工具，這是你的麻將神器 —— 麻將工具箱。<br><span class="highlight">「因為打牌，值得更專業。」</span>',
+            'mahjong-final-1': '這不只是輔助工具。',
+            'mahjong-final-2': '這是 麻將工具箱。',
+            'mahjong-final-3': '「因為打牌，值得更專業。」',
             // MBTI Page
             'mbti-tagline': '「了解自己，是最重要的能力。」',
             'mbti-hero-desc': '我們打造了一款真正精準的 MBTI 人格分析網站。<br>不只是分類，而是深入理解。',
@@ -242,7 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'mbti-f4-d': '探索與你擁有相同人格的知名人物，看見這種人格在世界中的可能性。',
             'mbti-f5-t': '人際相處指南',
             'mbti-f5-d': '清楚列出適合相處、以及容易產生衝突的人格類型，讓關係不再只是靠運氣。',
-            'mbti-final': '這不只是一個測驗。這是一面讓你看清自己的鏡子。<br><span class="highlight">精準 MBTI 人格分析網站 - 「理解自己，才能走得更遠。」</span>',
+            'mbti-final-1': '這不只是一個測驗。',
+            'mbti-final-2': '這是 精準 MBTI。',
+            'mbti-final-3': '「理解自己，才能走得更遠。」',
             // Weather Page
             'weather-tagline': '「天氣，不只是預測。」',
             'weather-hero-desc': '我們打造全新的專業氣象預報軟體，結合中央氣象署的資料，讓資訊更可靠、更精準。',
@@ -252,7 +266,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'weather-f2-d': '以精緻的視覺化呈現，讓預報不只是數字，而是流動的體驗。',
             'weather-f3-t': '專業 × 直覺',
             'weather-f3-d': '簡單的操作，專業的資訊，每一次打開，都能安心出門。',
-            'weather-final': '這不只是天氣軟體。這是 <span style="color: white; font-weight: 700;">你的未來天氣指南</span>。<br>「因為天氣，值得更清晰。」',
+            'weather-final-1': '這不只是天氣軟體。',
+            'weather-final-2': '這是 氣象預報。',
+            'weather-final-3': '「因為天氣，值得更清晰。」',
             // UpToVal Page
             'val-tagline': '「娛樂，從戰場開始。」',
             'val-hero-desc': '我們打造了一款專屬於 特戰英豪玩家 的全能輔助平台。<br>這不只是工具，而是你的遊戲夥伴。',
@@ -264,7 +280,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'val-f3-d': '角色戰術、地圖分析、武器選擇，提供最完整的戰略建議，讓你在每一局都能打得更聰明。',
             'val-f4-t': '小遊戲與互動',
             'val-f4-d': '除了對戰，也有放鬆。多樣小遊戲，讓你的戰場生活更有趣。',
-            'val-final': '這不只是工具，這是屬於玩家的 特戰隨便你。<br><span class="highlight">「戰場，隨你定義。」</span>'
+            'val-final-1': '這不只是工具。',
+            'val-final-2': '這是 特戰隨便你。',
+            'val-final-3': '「戰場，隨你定義。」'
         },
         'en': {
             'logo': 'Up To You Studio',
@@ -356,7 +374,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'future-rpg-f2-d': 'Face monsters, battle, level up, and write your own legend.',
             'future-rpg-f3-t': 'Immersive Experience:',
             'future-rpg-f3-d': 'A world built with words, yet more real than imagination.',
-            'future-rpg-final': '"Your choice is the story."',
+            'future-rpg-final-1': 'More than a story.',
+            'future-rpg-final-2': 'This is your adventure.',
+            'future-rpg-final-3': '"Your choice is the story."',
             // Yanyanball Page
             'yanyan-tagline': '"Learn English, return to the essence."',
             'yanyan-start': 'Start Learning',
@@ -389,7 +409,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'trans-f3-d': 'Huson AI understands your habits and needs, giving the most relevant suggestions.',
             'trans-f4-t': 'Intuitive Design',
             'trans-f4-d': 'Clean interface, smooth animations—every interaction is a pleasure.',
-            'trans-quote': 'This is more than translation. This is the software that understands you.<br><span class="highlight">"Because language shouldn\'t be a barrier."</span>',
+            'trans-quote-1': 'This is more than translation.',
+            'trans-quote-2': 'This is software that understands you.',
+            'trans-quote-3': '"Because language shouldn\'t be a barrier."',
             // Huson AI Page
             'ai-tagline': '"Born in Taiwan, for the World."',
             'ai-btn': 'Try Now',
@@ -409,7 +431,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'ai-future-f2-title': 'Image Generation',
             'ai-future-f2-desc': 'From text descriptions to visual works, generating high-resolution images.',
             'ai-future-test': 'To participate in testing, please <a href="contact.html" style="color: white; text-decoration: underline;">contact us</a>.',
-            'ai-final': 'This is more than AI; this is Huson AI.<br><span style="color: white; font-weight: 700;">Taiwan spirit, worldwide impact.</span>',
+            'ai-final-1': 'This is more than AI.',
+            'ai-final-2': 'This is Huson AI.',
+            'ai-final-3': '"Taiwan spirit, worldwide impact."',
             // Animora Card Page
             'animora-tagline': '"Divination, Redefined."',
             'animora-btn': 'Try Now',
@@ -420,7 +444,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'animora-f2-d': 'Combined with Huson AI for the most customized and soul-touching experience.',
             'animora-f3-t': 'Intuitive Interface',
             'animora-f3-d': 'Exquisite interactions and smooth details where mystery meets technology.',
-            'animora-final': 'This is more than divination. This is <span class="highlight">Animora Card</span>.<br>"The unknown becomes clear."',
+            'animora-final-1': 'This is more than divination.',
+            'animora-final-2': 'This is Animora Card.',
+            'animora-final-3': '"The unknown becomes clear."',
             // 2048 Page
             'game2048-tagline': '"Classic Game, New Experience."',
             'game2048-hero-desc': '2048 is no longer just a solo challenge. We redefined this classic with global matchmaking.',
@@ -430,7 +456,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'game2048-f2-d': 'Log in and challenge the world. Climb to the top of the leaderboard with your wisdom.',
             'game2048-f3-t': 'New Social Experience',
             'game2048-f3-d': 'Friends, rivals, battlefield. A competitive stage for all players.',
-            'game2048-final': 'This is 2048 Global Battle.<br><span class="highlight">"Classic, yet different."</span>',
+            'game2048-final-1': 'This is more than a game.',
+            'game2048-final-2': 'This is 2048 Global Battle.',
+            'game2048-final-3': '"Classic, yet different."',
             // Mahjong Toolbox Page
             'mahjong-tagline': '"Playing Mahjong requires skill and tools."',
             'mahjong-hero-desc': 'An all-in-one app for Mahjong enthusiasts. Mahcal — taking control of every round.',
@@ -444,7 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'mahjong-f4-d': 'Check your daily luck and summon the God of Wealth for a lucky game.',
             'mahjong-f5-t': 'Find Players',
             'mahjong-f5-d': 'Easily find teammates through our server. Open a table and play together.',
-            'mahjong-final': 'More than an assistant; it\'s your Mahjong artifact—Mahjong Toolbox.<br><span class="highlight">"Because the game deserves professionalism."</span>',
+            'mahjong-final-1': 'More than an assistant.',
+            'mahjong-final-2': 'This is Mahjong Toolbox.',
+            'mahjong-final-3': '"Because the game deserves professionalism."',
             // MBTI Page
             'mbti-tagline': '"Understanding yourself is the most important skill."',
             'mbti-hero-desc': 'A truly precise MBTI analysis site. Not just classification, but deep understanding.',
@@ -458,7 +488,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'mbti-f4-d': 'Explore famous figures with your type and see the possibilities in the world.',
             'mbti-f5-t': 'Relationship Guide',
             'mbti-f5-d': 'Insights into compatible types and potential conflicts for better relationships.',
-            'mbti-final': 'More than a test; it\'s a mirror to see yourself clearly.<br><span class="highlight">Precise MBTI — "Understand yourself to go further."</span>',
+            'mbti-final-1': 'More than a test.',
+            'mbti-final-2': 'This is Precise MBTI.',
+            'mbti-final-3': '"Understand yourself to go further."',
             // Weather Page
             'weather-tagline': '"Weather is more than just a forecast."',
             'weather-hero-desc': 'Professional weather software using CWA data for reliable and accurate information.',
@@ -468,7 +500,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'weather-f2-d': 'Exquisite visualization makes the forecast a flowing experience, not just numbers.',
             'weather-f3-t': 'Professional × Intuitive',
             'weather-f3-d': 'Simple operation, professional info. Go out with peace of mind every time.',
-            'weather-final': 'More than weather software; it\'s your future weather guide.<br>"Because weather deserves more clarity."',
+            'weather-final-1': 'More than weather software.',
+            'weather-final-2': 'This is Weather Forecast.',
+            'weather-final-3': '"Because weather deserves more clarity."',
             // UpToVal Page
             'val-tagline': '"Entertainment starts on the battlefield."',
             'val-hero-desc': 'An all-in-one assistant platform for VALORANT players. Not just a tool, but your partner.',
@@ -480,7 +514,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'val-f3-d': 'Agent tactics, map analysis, and weapon choices for smarter play in every round.',
             'val-f4-t': 'Mini Games & Interaction',
             'val-f4-d': 'Relax with mini games to make your tactical life more interesting.',
-            'val-final': 'More than a tool; it\'s UpToVal for players.<br><span class="highlight">"The battlefield, defined by you."</span>'
+            'val-final-1': 'More than a tool.',
+            'val-final-2': 'This is UpToVal.',
+            'val-final-3': '"The battlefield, defined by you."'
         }
     };
 
