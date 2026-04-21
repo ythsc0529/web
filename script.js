@@ -282,7 +282,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'val-f4-d': '除了對戰，也有放鬆。多樣小遊戲，讓你的戰場生活更有趣。',
             'val-final-1': '這不只是工具。',
             'val-final-2': '這是 特戰隨便你。',
-            'val-final-3': '「戰場，隨你定義。」'
+            'val-final-3': '「戰場，隨你定義。」',
+            'cookie-text': '我們使用 Cookie 以確保您在我們的網站上獲得最佳體驗。',
+            'cookie-accept': '接受',
+            'cookie-decline': '拒絕'
         },
         'cn': {
             'logo': '随便你工作室',
@@ -516,7 +519,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'val-f4-d': '除了对战，也有放松。多样小游戏，让你的战场生活更有趣。',
             'val-final-1': '这不只是工具。',
             'val-final-2': '这是 特战随便你。',
-            'val-final-3': '「战场，随你定义。」'
+            'val-final-3': '「战场，随你定义。」',
+            'cookie-text': '我们使用 Cookie 以确保您在我们的网站上获得最佳体验。',
+            'cookie-accept': '接受',
+            'cookie-decline': '拒绝'
         },
         'en': {
             'logo': 'Up To You Studio',
@@ -750,7 +756,10 @@ document.addEventListener('DOMContentLoaded', () => {
             'val-f4-d': 'Relax with mini games to make your tactical life more interesting.',
             'val-final-1': 'More than a tool.',
             'val-final-2': 'This is UpToVal.',
-            'val-final-3': '"The battlefield, defined by you."'
+            'val-final-3': '"The battlefield, defined by you."',
+            'cookie-text': 'We use cookies to ensure you get the best experience on our website.',
+            'cookie-accept': 'Accept',
+            'cookie-decline': 'Decline'
         }
     };
 
@@ -799,7 +808,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Cookie Consent Logic ---
+    function initCookieConsent() {
+        if (localStorage.getItem('cookieConsent')) return;
+
+        const banner = document.createElement('div');
+        banner.className = 'cookie-banner';
+        banner.innerHTML = `
+            <div class="cookie-text" data-i18n="cookie-text">
+                我們使用 Cookie 以確保您在我們的網站上獲得最佳體驗。
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-btn-decline" data-i18n="cookie-decline">拒絕</button>
+                <button class="cookie-btn cookie-btn-accept" data-i18n="cookie-accept">接受</button>
+            </div>
+        `;
+        document.body.appendChild(banner);
+
+        // Update initial language
+        const currentLang = localStorage.getItem('lang') || 'zh';
+        banner.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang] && translations[currentLang][key]) {
+                el.innerHTML = translations[currentLang][key];
+            }
+        });
+
+        // Show banner with delay
+        setTimeout(() => {
+            banner.classList.add('active');
+        }, 1000);
+
+        const handleConsent = (choice) => {
+            localStorage.setItem('cookieConsent', choice);
+            banner.classList.remove('active');
+            setTimeout(() => banner.remove(), 600);
+        };
+
+        banner.querySelector('.cookie-btn-accept').addEventListener('click', () => handleConsent('accepted'));
+        banner.querySelector('.cookie-btn-decline').addEventListener('click', () => handleConsent('declined'));
+    }
+
     initLanguage();
+    initCookieConsent();
 
     // --- Bento Card Mouse Follow Effect ---
     const cards = document.querySelectorAll('.card');
