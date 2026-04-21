@@ -624,8 +624,9 @@ footer p {
     
     .navbar.scrolled {
         width: auto;
-        min-width: 200px;
-        padding: 0.6rem 1rem;
+        min-width: 180px;
+        padding: 0.4rem 0.8rem;
+        top: 0.5rem;
     }
 
     .nav-links {
@@ -653,6 +654,17 @@ footer p {
 
     .scrolled-passed .mobile-menu-toggle {
         display: flex;
+        width: 32px;
+        height: 32px;
+    }
+
+    .scrolled-passed .mobile-menu-toggle svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .scrolled-passed .logo {
+        font-size: 0.85rem;
     }
 
     .hero { min-height: 80vh; }
@@ -668,7 +680,19 @@ footer p {
        Actually user might want them. I'll keep them but compact them. */
     .scrolled-passed .lang-dropdown, 
     .scrolled-passed .theme-toggle {
-        margin-left: 0.5rem;
+        margin-left: 0.4rem;
+    }
+
+    .scrolled-passed .lang-dropbtn,
+    .scrolled-passed .theme-toggle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .scrolled-passed .lang-dropbtn svg,
+    .scrolled-passed .theme-toggle svg {
+        width: 16px;
+        height: 16px;
     }
 }
 
