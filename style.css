@@ -14,7 +14,9 @@
     --color-accent: #ffffff;
     --color-glass: rgba(255, 255, 255, 0.03);
     --color-glass-border: rgba(255, 255, 255, 0.08);
-    --color-glass-hover: rgba(255, 255, 255, 0.06);
+    --color-glass-hover: rgba(255, 255, 255, 0.1);
+    --color-navbar-bg: rgba(0, 0, 0, 0.3);
+    --color-navbar-bg-scrolled: rgba(0, 0, 0, 0.8);
     
     /* Typography */
     --font-heading: "Bodoni Moda", serif;
@@ -28,6 +30,20 @@
     /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     --transition-fast: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-theme: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+    --color-bg: #FAFAFA;
+    --color-text: #1A1A1A;
+    --color-text-muted: rgba(26, 26, 26, 0.6);
+    --color-accent: #000000;
+    --color-glass: rgba(0, 0, 0, 0.04);
+    --color-glass-border: rgba(0, 0, 0, 0.1);
+    --color-glass-hover: rgba(0, 0, 0, 0.08);
+    --color-navbar-bg: rgba(255, 255, 255, 0.3);
+    --color-navbar-bg-scrolled: rgba(255, 255, 255, 0.8);
 }
 
 /* Base resets */
@@ -44,6 +60,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: var(--transition-theme);
 }
 
 /* Custom Scrollbar */
@@ -104,7 +121,7 @@ section {
     transform: translateX(-50%);
     width: min(90%, 1200px);
     padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--color-navbar-bg);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid var(--color-glass-border);
@@ -118,7 +135,7 @@ section {
 
 .navbar.scrolled {
     padding: 0.8rem 2rem;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--color-navbar-bg-scrolled);
     top: 1rem;
 }
 
@@ -146,6 +163,41 @@ section {
 .nav-links a:hover {
     color: var(--color-text);
 }
+
+/* --- Theme Toggle --- */
+.theme-toggle {
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    margin-left: 2rem;
+}
+
+.theme-toggle:hover {
+    background: var(--color-glass-hover);
+    transform: scale(1.1);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+[data-theme="light"] .theme-toggle .moon-icon { display: none; }
+[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
+html:not([data-theme]) .theme-toggle .sun-icon { display: none; } /* Default is dark */
 
 /* --- Hero Section --- */
 .hero {
