@@ -164,6 +164,102 @@ section {
     color: var(--color-text);
 }
 
+/* --- Mobile Menu Toggle --- */
+.mobile-menu-toggle {
+    display: none;
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: 0;
+}
+
+.mobile-menu-toggle:hover {
+    background: var(--color-glass-hover);
+}
+
+.mobile-menu-toggle svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* --- Mobile Menu Overlay --- */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+}
+
+[data-theme="light"] .mobile-menu-overlay {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+}
+
+.mobile-menu-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-smooth);
+}
+
+.mobile-menu-overlay.active .mobile-menu-links a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 2rem;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 /* --- Theme Toggle --- */
 .theme-toggle {
     background: var(--color-glass);
@@ -442,7 +538,45 @@ footer p {
 
 @media (max-width: 768px) {
     h1 { font-size: 4rem; }
-    .navbar { width: 95%; padding: 0.8rem 1.5rem; }
+    .navbar { 
+        width: 95%; 
+        padding: 0.8rem 1.5rem; 
+        top: 1rem;
+    }
+    
+    .navbar.scrolled {
+        width: auto;
+        min-width: 200px;
+        padding: 0.6rem 1rem;
+    }
+
+    .nav-links {
+        display: none; /* Default to hidden if scrolled or small */
+    }
+
+    /* Logic: Top of page shows links, Scrolled hides them and shows hamburger */
+    html:not(.scrolled-passed) .nav-links {
+        display: flex;
+        font-size: 0.7rem;
+    }
+    
+    html:not(.scrolled-passed) .nav-links a {
+        margin-left: 1rem;
+    }
+
+    html:not(.scrolled-passed) .logo {
+        font-size: 1rem;
+    }
+
+    /* When scrolled: Hide links, show toggle */
+    .scrolled-passed .nav-links {
+        display: none !important;
+    }
+
+    .scrolled-passed .mobile-menu-toggle {
+        display: flex;
+    }
+
     .hero { min-height: 80vh; }
     .bento-grid {
         grid-template-columns: 1fr;
@@ -450,6 +584,13 @@ footer p {
     .size-lg, .size-md, .size-tall {
         grid-column: span 1;
         grid-row: span 1;
+    }
+
+    /* Hide language/theme on mobile scrolled to save space? 
+       Actually user might want them. I'll keep them but compact them. */
+    .scrolled-passed .lang-dropdown, 
+    .scrolled-passed .theme-toggle {
+        margin-left: 0.5rem;
     }
 }
 

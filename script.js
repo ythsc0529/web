@@ -820,8 +820,57 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
+            document.documentElement.classList.add('scrolled-passed');
         } else {
             navbar.classList.remove('scrolled');
+            document.documentElement.classList.remove('scrolled-passed');
+        }
+    });
+
+    // --- Mobile Menu Logic ---
+    const mobileMenuOverlay = document.createElement('div');
+    mobileMenuOverlay.className = 'mobile-menu-overlay';
+    mobileMenuOverlay.innerHTML = `
+        <button class="mobile-menu-close" aria-label="Close Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="mobile-menu-links">
+            <a href="index.html#works" data-i18n="nav-works">作品</a>
+            <a href="coming-soon.html" data-i18n="nav-future">預告</a>
+            <a href="contact.html" data-i18n="nav-contact">聯絡我們</a>
+            <a href="about.html" data-i18n="nav-about">關於我們</a>
+        </div>
+    `;
+    document.body.appendChild(mobileMenuOverlay);
+
+    const closeBtn = mobileMenuOverlay.querySelector('.mobile-menu-close');
+    
+    function toggleMobileMenu(show) {
+        mobileMenuOverlay.classList.toggle('active', show);
+        document.body.style.overflow = show ? 'hidden' : '';
+        if (show) {
+            // Re-run i18n for the newly injected links
+            const savedLang = localStorage.getItem('lang') || 'zh';
+            mobileMenuOverlay.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[savedLang] && translations[savedLang][key]) {
+                    el.innerHTML = translations[savedLang][key];
+                }
+            });
+        }
+    }
+
+    closeBtn.addEventListener('click', () => toggleMobileMenu(false));
+
+    // Handle clicks on overlay links to close menu
+    mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMobileMenu(false));
+    });
+
+    // Delegate menu toggle from navbar (since button is added dynamically or in HTML)
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.mobile-menu-toggle')) {
+            toggleMobileMenu(true);
         }
     });
 
