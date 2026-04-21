@@ -30,6 +30,7 @@
     /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     --transition-fast: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-premium: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-theme: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
@@ -116,9 +117,9 @@ section {
 /* --- Navbar --- */
 .navbar {
     position: fixed;
-    top: 2rem;
+    top: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 2rem);
     width: min(90%, 1200px);
     padding: 1rem 2rem;
     background: var(--color-navbar-bg);
@@ -130,13 +131,14 @@ section {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    transition: var(--transition-fast);
+    transition: var(--transition-premium);
+    will-change: transform, padding, background-color;
 }
 
 .navbar.scrolled {
     padding: 0.8rem 2rem;
     background: var(--color-navbar-bg-scrolled);
-    top: 1rem;
+    transform: translate(-50%, 1rem);
 }
 
 .logo {
@@ -619,14 +621,14 @@ footer p {
     .navbar { 
         width: 95%; 
         padding: 0.8rem 1.5rem; 
-        top: 1rem;
+        transform: translate(-50%, 1rem);
     }
     
     .navbar.scrolled {
         width: auto;
         min-width: 180px;
         padding: 0.4rem 0.8rem;
-        top: 0.5rem;
+        transform: translate(-50%, 0.5rem);
     }
 
     .nav-links {
