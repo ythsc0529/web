@@ -149,6 +149,15 @@ section {
     color: var(--color-text);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+    border-radius: 6px;
 }
 
 .nav-links a {
@@ -531,6 +540,25 @@ footer p {
     font-size: 0.8rem;
 }
 
+.footer-logo {
+    height: 48px;
+    width: auto;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+    transition: var(--transition-fast);
+}
+
+.footer-logo:hover {
+    opacity: 1;
+}
+
+.hero-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+}
+
 /* --- Cookie Banner --- */
 .cookie-banner {
     position: fixed;
@@ -728,4 +756,107 @@ footer p {
     outline: none;
     border-color: var(--color-text);
     background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Logo Philosophy --- */
+.logo-philosophy-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-lg);
+    padding: 4rem;
+}
+
+.logo-philosophy-visual {
+    position: sticky;
+    top: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-philosophy-visual img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    transition: var(--transition-smooth);
+}
+
+[data-theme="light"] .logo-philosophy-visual img {
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.logo-philosophy-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+}
+
+.philosophy-group {
+    margin-bottom: 3rem;
+}
+
+.philosophy-group h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.philosophy-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.philosophy-item h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 8px;
+    height: 8px;
+    background: var(--color-text);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.philosophy-footer {
+    padding: 2rem;
+    background: var(--color-glass-hover);
+    border-radius: var(--radius-md);
+    font-style: italic;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .logo-philosophy-container {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+        gap: 3rem;
+    }
+    .logo-philosophy-visual {
+        position: static;
+    }
+    .logo-philosophy-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
 }
