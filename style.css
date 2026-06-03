@@ -1,7 +1,7 @@
 /* 
- * WhateverYouStudio - Premium Design System
- * Inspired by Apple & Google official aesthetics.
- * Minimalism, Sophistication, and Fluidity.
+ * WhateverYouStudio - Immersive Design System
+ * Deep dark aesthetics with custom cursor, scroll progress,
+ * parallax hero, and cinematic scroll-triggered animations.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Noto+Serif+TC:wght@200..900&display=swap');
@@ -517,16 +517,9 @@ html:not([data-theme]) .theme-toggle .sun-icon { display: none; } /* Default is 
     border-color: var(--color-text);
 }
 
-/* --- Animations --- */
-.reveal {
+/* --- Animations: base state only (keyframes defined in immersive section) --- */
+.reveal, .reveal-left, .reveal-right, .reveal-flip, .reveal-scale {
     opacity: 0;
-    transform: translateY(30px);
-    transition: var(--transition-smooth);
-}
-
-.reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* --- Footer --- */
@@ -860,3 +853,231 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==============================================
+   IMMERSIVE ADDITIONS
+   Custom Cursor · Scroll Progress · 
+   Hero Parallax · Cinematic Reveal Animations
+   ============================================== */
+
+/* --- Custom Cursor: hide default cursor on fine-pointer (mouse) devices ---
+   CSS @media handles this reliably without needing JS class injection.
+   Mobile (coarse pointer) keeps the default cursor automatically. */
+@media (hover: hover) and (pointer: fine) {
+    *, *::before, *::after {
+        cursor: none !important;
+    }
+}
+
+/* Cursor elements: hidden on mobile via pointer media query above */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    top: 0;
+    left: 0;
+}
+
+.cursor-glow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(4px);
+    top: 0;
+    left: 0;
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.cursor-dot,
+.cursor-glow {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.cursor-glow.hovering {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Only show cursor elements on fine-pointer devices */
+@media not all and (hover: hover) and (pointer: fine) {
+    .cursor-dot,
+    .cursor-glow {
+        display: none !important;
+    }
+}
+
+/* --- Scroll Progress Bar --- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.9), rgba(255,255,255,0.3));
+    z-index: 9999;
+    transition: width 0.05s linear;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* --- Hero Parallax Layer --- */
+.hero {
+    overflow: hidden;
+}
+
+.hero-parallax-content {
+    will-change: transform;
+    transition: transform 0.05s linear;
+}
+
+/* --- Cinematic Reveal Animations (keyframe-based) ---
+   Using @keyframes instead of transitions so the animation ALWAYS
+   plays from the 'from' state — no matter how many times it repeats. */
+
+@keyframes anim-reveal-up {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes anim-reveal-left {
+    from { opacity: 0; transform: translateX(-60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes anim-reveal-right {
+    from { opacity: 0; transform: translateX(60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes anim-reveal-flip {
+    from { opacity: 0; transform: perspective(800px) rotateX(25deg) translateY(60px); }
+    to   { opacity: 1; transform: perspective(800px) rotateX(0deg) translateY(0); }
+}
+@keyframes anim-reveal-scale {
+    from { opacity: 0; transform: scale(0.88); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Base: hidden. Transform matches the 'from' keyframe for seamless start. */
+.reveal       { transform: translateY(50px); }
+.reveal-left  { transform: translateX(-60px); }
+.reveal-right { transform: translateX(60px); }
+.reveal-flip  { transform: perspective(800px) rotateX(25deg) translateY(60px); transform-origin: top center; }
+.reveal-scale { transform: scale(0.88); }
+
+/* Visible state: start the animation */
+.reveal.is-visible       { animation: anim-reveal-up    0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.reveal-left.is-visible  { animation: anim-reveal-left  0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.reveal-right.is-visible { animation: anim-reveal-right 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.reveal-flip.is-visible  { animation: anim-reveal-flip  0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.reveal-scale.is-visible { animation: anim-reveal-scale 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* Stagger delay utilities — target only when visible to avoid affecting hidden state */
+.delay-1.is-visible { animation-delay: 0.1s; }
+.delay-2.is-visible { animation-delay: 0.2s; }
+.delay-3.is-visible { animation-delay: 0.3s; }
+.delay-4.is-visible { animation-delay: 0.4s; }
+.delay-5.is-visible { animation-delay: 0.5s; }
+.delay-6.is-visible { animation-delay: 0.6s; }
+
+/* --- Enhanced Card hover with depth --- */
+.card {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.card:hover {
+    background: var(--color-glass-hover);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Scan-line shimmer on card hover */
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.04) 50%,
+        transparent 60%
+    );
+    background-size: 200% 100%;
+    background-position: 200% 0;
+    border-radius: inherit;
+    transition: background-position 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card:hover::before {
+    background-position: -200% 0;
+}
+
+.card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Section number accent --- */
+.section-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-glass-border);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+}
+
+/* --- Hero title glowing underline --- */
+.hero h1 {
+    position: relative;
+    display: inline-block;
+}
+
+/* --- Noise texture overlay for depth --- */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* Ensure content is above noise */
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Light theme cursor adjustments --- */
+[data-theme="light"] .cursor-dot {
+    background: #000;
+}
+
+[data-theme="light"] .cursor-glow {
+    border-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .cursor-glow.hovering {
+    border-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] #scroll-progress {
+    background: linear-gradient(90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}

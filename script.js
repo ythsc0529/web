@@ -1,21 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Scroll Animations (Intersection Observer) ---
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, observerOptions);
-
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach(el => observer.observe(el));
+    // Scroll animations are handled by initCinematicReveal() below.
 
     // --- Theme Switching Logic ---
     const themeToggle = document.getElementById('theme-toggle');
@@ -940,4 +924,145 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // =============================================
+    //  IMMERSIVE FEATURES
+    //  1. Custom Cursor (auto-injected, all pages)
+    //  2. Scroll Progress Bar (auto-injected)
+    //  3. Hero Parallax on Scroll
+    //  4. Cinematic Reveal Animations (re-trigger every scroll)
+    // =============================================
+
+    // --- 1. Custom Cursor ---
+    // Cursor hiding is handled by CSS: @media (hover: hover) and (pointer: fine).
+    // JS only needs to: inject elements + track mouse position.
+    function initCustomCursor() {
+        let dot = document.getElementById('cursor-dot');
+        let glow = document.getElementById('cursor-glow');
+
+        if (!dot) {
+            dot = document.createElement('div');
+            dot.id = 'cursor-dot';
+            dot.className = 'cursor-dot';
+            document.body.appendChild(dot);
+        }
+        if (!glow) {
+            glow = document.createElement('div');
+            glow.id = 'cursor-glow';
+            glow.className = 'cursor-glow';
+            document.body.appendChild(glow);
+        }
+
+        // Start off-screen; move to actual position on first mousemove
+        dot.style.left = '-200px';  dot.style.top = '-200px';
+        glow.style.left = '-200px'; glow.style.top = '-200px';
+
+        let mouseX = -200, mouseY = -200;
+        let glowX = -200, glowY = -200;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dot.style.left = mouseX + 'px';
+            dot.style.top  = mouseY + 'px';
+        });
+
+        function animateGlow() {
+            glowX += (mouseX - glowX) * 0.12;
+            glowY += (mouseY - glowY) * 0.12;
+            glow.style.left = glowX + 'px';
+            glow.style.top  = glowY + 'px';
+            requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+
+        const hoverTargets = 'a, button, .card, input, textarea, [role="button"]';
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(hoverTargets)) glow.classList.add('hovering');
+        });
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest(hoverTargets)) glow.classList.remove('hovering');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            dot.style.opacity = '0';
+            glow.style.opacity = '0';
+        });
+        document.addEventListener('mouseenter', () => {
+            dot.style.opacity = '1';
+            glow.style.opacity = '1';
+        });
+    }
+
+    // --- 2. Scroll Progress Bar ---
+    function initScrollProgress() {
+        let bar = document.getElementById('scroll-progress');
+        if (!bar) {
+            bar = document.createElement('div');
+            bar.id = 'scroll-progress';
+            document.body.appendChild(bar);
+        }
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            bar.style.width = pct + '%';
+        }, { passive: true });
+    }
+
+    // --- 3. Hero Parallax on Scroll ---
+    function initHeroParallax() {
+        const heroContent = document.getElementById('hero-parallax');
+        if (!heroContent) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    heroContent.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    // --- 4. Cinematic Reveal Animations ---
+    // @keyframes always play from the 'from' state.
+    // To restart them: remove is-visible, force reflow, re-add is-visible.
+    function initCinematicReveal() {
+        const selector = '.reveal, .reveal-left, .reveal-right, .reveal-flip, .reveal-scale';
+        const elements = document.querySelectorAll(selector);
+        if (!elements.length) return;
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const el = entry.target;
+                if (entry.isIntersecting) {
+                    // Remove class first so the animation name binding is reset
+                    el.classList.remove('is-visible');
+                    void el.offsetHeight;          // Force reflow: browser commits the removal
+                    el.classList.add('is-visible'); // Re-add: animation plays from 'from' state
+                } else {
+                    // Remove class: keyframe stops, base CSS (opacity:0) takes over instantly
+                    el.classList.remove('is-visible');
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.05
+        });
+
+        elements.forEach(el => revealObserver.observe(el));
+    }
+
+    // --- Bootstrap all immersive features ---
+    initCustomCursor();
+    initScrollProgress();
+    initHeroParallax();
+    initCinematicReveal();
+
 });
